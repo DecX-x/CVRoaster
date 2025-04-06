@@ -224,6 +224,8 @@ export const sampleRoastResult: CVRoastResult = {
 
 }
   In the summary section, you should roast hard the cvs, bully it. Be at least 300 words on the summary section, you should complain about everything, education, skills etc.
+  if you want to highlight something, you can use this format: **bold**.
+
 `;
 
 

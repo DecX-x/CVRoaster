@@ -17,11 +17,7 @@ export interface CVRoastResult {
     description: string
     example: string
   }[]
-  metadata: {
-    filename: string
-    uploadDate: string
-    fileSize: string
-  }
+
 }
 
 // Sample data for development
@@ -129,10 +125,6 @@ export const sampleRoastResult: CVRoastResult = {
         "Before: 'Responsible for marketing campaigns'\nAfter: 'Led 12 marketing campaigns that generated $1.2M in revenue and achieved a 24% conversion rate'",
     },
   ],
-  metadata: {
-    filename: "John_Doe_Resume_2023.pdf",
-    uploadDate: "2023-04-06T14:30:00Z",
-    fileSize: "423KB",
-  },
+
 }
 

@@ -19,6 +19,8 @@ export interface CVRoastResult {
   }[]
 
 }
+const language = 'english'
+
 
 // Sample data for development
 export const sampleRoastResult: CVRoastResult = {
@@ -96,3 +98,4 @@ export const sampleRoastResult: CVRoastResult = {
   ]
 }
 
+export default language

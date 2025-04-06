@@ -1,5 +1,6 @@
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import { model } from "./llm";
+import language from "./types";
 
 const response = await model.stream([
     new SystemMessage(`
@@ -89,7 +90,8 @@ Roasted: "Oh wow, you ‘managed’ a team? That’s cute. Managed to do what? K
 
 Improved: "Led a team of 10 sales professionals, implementing a new strategy that increased revenue by 25% within six months."
 
-answer in indonesian (pakai bahasa gaul seperti lu gua)
+answer in ${language} 
+for example in indonesian (pakai bahasa gaul seperti lu gua)
 
 return only json format with this example:
 export interface CVRoastResult {

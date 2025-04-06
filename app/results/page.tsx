@@ -38,13 +38,12 @@ export default function ResultsPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <Link href="/upload">
-              <Button className="bg-gradient-to-r from-[#e67373] to-[#7ac97a] hover:from-[#d86565] hover:to-[#69b869] text-white">
-                Upload Another CV
-              </Button>
-            </Link>
             <Button variant="outline" className="gradient-border text-[#f5f5f5] border-[#333333]">
-              Download Full Report
+                Upload Another CV
             </Button>
+            </Link>
+            
+            
           </div>
         </div>
       </div>

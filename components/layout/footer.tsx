@@ -28,19 +28,31 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/history" className="text-[#a0a0a0] hover:text-[#6bb7d3] transition-colors">
-                  History
+                <Link href="https://alxosphere.studio" className="text-[#a0a0a0] hover:text-[#6bb7d3] transition-colors">
+                  Alxosphere Platform
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-[#f5f5f5]">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4 text-[#f5f5f5]">Alxosphere Apps</h3>
             <ul className="space-y-2">
-              <li className="text-[#a0a0a0]">support@aicvroaster.com</li>
-              <li className="text-[#a0a0a0]">Privacy Policy</li>
-              <li className="text-[#a0a0a0]">Terms of Service</li>
+            <li>
+                <Link href="https://chat.alxosphere.studio" className="text-[#a0a0a0] hover:text-[#e67373] transition-colors">
+                  Alxosphere Chat
+                </Link>
+              </li>
+              <li>
+                <Link href="https://dream.alxosphere.studio" className="text-[#a0a0a0] hover:text-[#7ac97a] transition-colors">
+                  Dream Studio
+                </Link>
+              </li>
+              <li>
+                <Link href="https://echo.alxosphere.studio" className="text-[#a0a0a0] hover:text-[#6bb7d3] transition-colors">
+                  Echo
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

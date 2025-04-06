@@ -233,7 +233,10 @@ export const sampleRoastResult: CVRoastResult = {
 async function generateCVRoast() {
   const message = new HumanMessage(`${extractedMarkdown}`);
   const response = await model.invoke([systemprompt, message]);
-  console.log(response.content);
+  // clean up the response
+  const jsonResponse = response.text.replace(/```json/g, "").replace(/```/g, "").trim();
+  const parsedResponse = JSON.parse(jsonResponse);
+  console.log(parsedResponse);
 
 
 }

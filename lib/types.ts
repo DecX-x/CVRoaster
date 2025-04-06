@@ -22,109 +22,77 @@ export interface CVRoastResult {
 
 // Sample data for development
 export const sampleRoastResult: CVRoastResult = {
-  overall: {
-    score: 52,
-    summary:
-      "Your CV shows potential but needs improvement in several key areas. The formatting is good, but the content could be stronger with more quantifiable achievements. Your CV is somewhat compatible with ATS systems but could be optimized further.",
+  "overall": {
+    "score": 10,
+    "summary": "Loh, CV lu ini kacau banget, bener-bener perlu banyak improvement. Awalnya, email lu 'johnsmith123@email.com', kayaknya dibuat pas SMP. Lu serius mau dapetin kerja dengan email segitu? Terus, di bagian 'Objective', 'mencari pekerjaan dengan gaji dan benefit bagus' bukan tujuan karir, itu tujuan hidup semua orang. Pengalaman kerja lu cuma daftar tugas yang nggak ada gunanya. 'Menangani pelanggan' dan 'mengoperasikan kasir' adalah tugas dasar yang nggak menunjukkan prestasi apa-apa. Pendidikan lu cuma sampai SMA, dan 'lulus' bukan prestasi. Skill lu cuma 'Microsoft Word' dan 'Facebook', tapi masih dikasih 'fast typer' yang nggak jelas. Referensi 'tersedia jika diminta'? Dasar. Sepertinya CV ini dibuat 10 menit sebelum melamar. Perlu banyak banget improvement, mulai dari format, isi, sampai bahasa yang digunakan. Lu harus menunjukkan pencapaian, bukan cuma tugas-tugas dasar."
   },
-  categories: [
+  "categories": [
     {
-      name: "Content Quality",
-      score: 65,
-      color: "#e67373",
-      feedback: [
+      "name": "Content Quality",
+      "score": 5,
+      "color": "#ff4d4d",
+      "feedback": [
         {
-          type: "negative",
-          text: "Your job descriptions focus too much on responsibilities rather than achievements.",
+          "type": "negative",
+          "text": "Pengalaman kerja cuma daftar tugas yang nggak ada gunanya. Berikan hasil dan dampak pekerjaan lu."
         },
         {
-          type: "negative",
-          text: "Lack of quantifiable results makes it difficult to assess your impact.",
+          "type": "negative",
+          "text": "Pendidikan cuma sampai SMA dan nggak ada pencapaian yang signifikan."
         },
         {
-          type: "positive",
-          text: "Good use of action verbs throughout your experience section.",
-        },
-        {
-          type: "warning",
-          text: "Your summary is generic and could be more tailored to the specific roles you're targeting.",
-        },
-      ],
+          "type": "negative",
+          "text": "Skill yang lu cantumkan terlalu umum dan nggak relevan dengan pekerjaan yang dilamar."
+        }
+      ]
     },
     {
-      name: "Formatting",
-      score: 80,
-      color: "#7ac97a",
-      feedback: [
+      "name": "Formatting",
+      "score": 20,
+      "color": "#ffcc00",
+      "feedback": [
         {
-          type: "positive",
-          text: "Clean, consistent formatting throughout the document.",
+          "type": "warning",
+          "text": "Format CV masih sangat sederhana dan kurang menarik."
         },
         {
-          type: "positive",
-          text: "Good use of white space makes your CV easy to scan.",
-        },
-        {
-          type: "warning",
-          text: "Font size could be increased slightly for better readability.",
-        },
-      ],
+          "type": "warning",
+          "text": "Gunakan bullet point yang lebih rapi dan konsisten."
+        }
+      ]
     },
     {
-      name: "ATS Compatibility",
-      score: 68,
-      color: "#6bb7d3",
-      feedback: [
+      "name": "ATS Compatibility",
+      "score": 15,
+      "color": "#ff9900",
+      "feedback": [
         {
-          type: "negative",
-          text: "Missing key industry keywords that ATS systems look for.",
+          "type": "negative",
+          "text": "CV nggak ada kata kunci yang relevan dengan pekerjaan yang dilamar."
         },
         {
-          type: "warning",
-          text: "Section headers could be more standard for better ATS recognition.",
-        },
-        {
-          type: "positive",
-          text: "Simple formatting without tables or complex layouts is good for ATS.",
-        },
-      ],
-    },
+          "type": "warning",
+          "text": "Format CV masih bisa dioptimasi untuk lebih kompatibel dengan ATS."
+        }
+      ]
+    }
   ],
-  improvementTips: [
+  "improvementTips": [
     {
-      title: "Quantify Your Achievements",
-      description:
-        "Instead of saying 'Managed a team', say 'Managed a team of 8 developers, increasing productivity by 35%'.",
-      example:
-        "Before: 'Managed social media accounts'\nAfter: 'Managed 5 social media accounts, increasing engagement by 45% and growing followers from 10K to 25K in 6 months'",
+      "title": "Tingkatkan Kualitas Pengalaman Kerja",
+      "description": "Ubah pengalaman kerja menjadi pencapaian yang spesifik dan terukur.",
+      "example": "Daripada 'Menangani pelanggan', gunakan 'Meningkatkan kepuasan pelanggan sebesar 25% melalui penanganan komplain yang efektif'."
     },
     {
-      title: "Tailor Your Summary",
-      description:
-        "Customize your professional summary for each job application to highlight relevant skills and experience.",
-      example:
-        "Before: 'Experienced software developer'\nAfter: 'Full-stack developer with 5 years of experience building scalable React applications and Node.js microservices'",
+      "title": "Perbaiki Skill yang Relevan",
+      "description": "Cantumkan skill yang relevan dengan pekerjaan yang dilamar dan berikan contoh spesifik.",
+      "example": "Daripada 'Microsoft Word', gunakan 'Menguasai Microsoft Office Suite, terutama Word dan Excel, dengan kecepatan mengetik 70 wpm'."
     },
     {
-      title: "Add More Keywords",
-      description:
-        "Research job descriptions in your target roles and incorporate relevant keywords throughout your CV.",
-      example:
-        "Before: 'Worked on database projects'\nAfter: 'Designed and optimized SQL databases, implemented data warehousing solutions, and created ETL pipelines using PostgreSQL and AWS Redshift'",
-    },
-    {
-      title: "Improve Section Headers",
-      description:
-        "Use standard section headers like 'Work Experience', 'Education', and 'Skills' for better ATS recognition.",
-      example: "Before: 'Where I've Worked'\nAfter: 'Professional Experience'",
-    },
-    {
-      title: "Focus on Impact",
-      description: "For each role, emphasize the impact of your work rather than just listing responsibilities.",
-      example:
-        "Before: 'Responsible for marketing campaigns'\nAfter: 'Led 12 marketing campaigns that generated $1.2M in revenue and achieved a 24% conversion rate'",
-    },
-  ],
-
+      "title": "Optimalkan Format CV",
+      "description": "Gunakan format yang lebih modern dan profesional serta pastikan ATS compatibility.",
+      "example": "Gunakan template CV yang profesional dan pastikan untuk menyimpan file dalam format .docx atau .pdf yang sesuai dengan ATS."
+    }
+  ]
 }
 

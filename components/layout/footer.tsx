@@ -1,0 +1,55 @@
+import Link from "next/link"
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-[#333333] bg-[#1e1e1e] py-8">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-[#e67373] to-[#7ac97a] bg-clip-text text-transparent">
+              AI CV Roaster
+            </h3>
+            <p className="text-[#a0a0a0] max-w-xs">
+              Get honest, constructive feedback on your resume to improve your job application success rate.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-[#f5f5f5]">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-[#a0a0a0] hover:text-[#e67373] transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/upload" className="text-[#a0a0a0] hover:text-[#7ac97a] transition-colors">
+                  Upload CV
+                </Link>
+              </li>
+              <li>
+                <Link href="/history" className="text-[#a0a0a0] hover:text-[#6bb7d3] transition-colors">
+                  History
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-[#f5f5f5]">Contact</h3>
+            <ul className="space-y-2">
+              <li className="text-[#a0a0a0]">support@aicvroaster.com</li>
+              <li className="text-[#a0a0a0]">Privacy Policy</li>
+              <li className="text-[#a0a0a0]">Terms of Service</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-8 border-t border-[#333333] pt-4 text-center text-[#a0a0a0]">
+          <p>© {new Date().getFullYear()} Alxosphere Platforms. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  )
+}
+

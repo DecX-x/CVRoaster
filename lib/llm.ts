@@ -15,4 +15,4 @@ const model = new ChatOpenAI({
     }
 })
 
-export default model;
+export { model };

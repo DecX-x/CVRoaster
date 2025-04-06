@@ -33,13 +33,7 @@ export default function HeroSection() {
 
           <div className="flex-1 flex justify-center">
             <div className="relative w-full max-w-md aspect-square">
-              <Image
-                src="/logo.png"
-                alt="CV Analysis Illustration"
-                width={400}
-                height={400}
-                className="object-contain"
-              />
+              
             </div>
           </div>
         </div>

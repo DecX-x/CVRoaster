@@ -25,75 +25,75 @@ const language = 'english'
 // Sample data for development
 export const sampleRoastResult: CVRoastResult = {
   "overall": {
-    "score": 10,
-    "summary": "Loh, CV lu ini kacau banget, bener-bener perlu banyak improvement. Awalnya, email lu 'johnsmith123@email.com', kayaknya dibuat pas SMP. Lu serius mau dapetin kerja dengan email segitu? Terus, di bagian 'Objective', 'mencari pekerjaan dengan gaji dan benefit bagus' bukan tujuan karir, itu tujuan hidup semua orang. Pengalaman kerja lu cuma daftar tugas yang nggak ada gunanya. 'Menangani pelanggan' dan 'mengoperasikan kasir' adalah tugas dasar yang nggak menunjukkan prestasi apa-apa. Pendidikan lu cuma sampai SMA, dan 'lulus' bukan prestasi. Skill lu cuma 'Microsoft Word' dan 'Facebook', tapi masih dikasih 'fast typer' yang nggak jelas. Referensi 'tersedia jika diminta'? Dasar. Sepertinya CV ini dibuat 10 menit sebelum melamar. Perlu banyak banget improvement, mulai dari format, isi, sampai bahasa yang digunakan. Lu harus menunjukkan pencapaian, bukan cuma tugas-tugas dasar."
+    "score": 42,
+    "summary": "Let's be real, this CV is a mess. It's like you threw everything you knew into a blender and hit puree. You're an informatics undergraduate with a bunch of AI and ML projects, but your CV reads like a laundry list of buzzwords. Your professional summary is so generic it could be copy-pasted from a dozen other CVs. Your education section is unimpressive, and your university is not exactly renowned. Your projects are the only redeeming quality, but even then, the descriptions are too focused on what the projects do rather than the impact they made. Your skills section is a joke - listing 'Microsoft Office' as a skill is like saying you can breathe. The certifications are nice, but they're not exactly from prestigious institutions. Overall, this CV needs a complete overhaul to make it stand out."
   },
   "categories": [
     {
       "name": "Content Quality",
-      "score": 5,
-      "color": "#ff4d4d",
+      "score": 50,
+      "color": "#e67373",
       "feedback": [
         {
           "type": "negative",
-          "text": "Pengalaman kerja cuma daftar tugas yang nggak ada gunanya. Berikan hasil dan dampak pekerjaan lu."
+          "text": "Your professional summary is too generic and doesn't highlight any unique strengths."
         },
         {
           "type": "negative",
-          "text": "Pendidikan cuma sampai SMA dan nggak ada pencapaian yang signifikan."
+          "text": "Project descriptions focus too much on what the projects do rather than their impact or achievements."
         },
         {
-          "type": "negative",
-          "text": "Skill yang lu cantumkan terlalu umum dan nggak relevan dengan pekerjaan yang dilamar."
+          "type": "warning",
+          "text": "Your CV lacks specific numbers and metrics to demonstrate the effectiveness of your projects."
         }
       ]
     },
     {
       "name": "Formatting",
-      "score": 20,
-      "color": "#ffcc00",
+      "score": 70,
+      "color": "#7ac97a",
       "feedback": [
         {
-          "type": "warning",
-          "text": "Format CV masih sangat sederhana dan kurang menarik."
+          "type": "positive",
+          "text": "The CV is well-structured and easy to follow."
         },
         {
           "type": "warning",
-          "text": "Gunakan bullet point yang lebih rapi dan konsisten."
+          "text": "Some sections, like the skills section, are too long and could be formatted better."
         }
       ]
     },
     {
       "name": "ATS Compatibility",
-      "score": 15,
-      "color": "#ff9900",
+      "score": 60,
+      "color": "#6bb7d3",
       "feedback": [
         {
-          "type": "negative",
-          "text": "CV nggak ada kata kunci yang relevan dengan pekerjaan yang dilamar."
+          "type": "warning",
+          "text": "Your CV could be optimized further for ATS by including more relevant keywords from job descriptions."
         },
         {
-          "type": "warning",
-          "text": "Format CV masih bisa dioptimasi untuk lebih kompatibel dengan ATS."
+          "type": "positive",
+          "text": "The CV is generally well-formatted for ATS compatibility."
         }
       ]
     }
   ],
   "improvementTips": [
     {
-      "title": "Tingkatkan Kualitas Pengalaman Kerja",
-      "description": "Ubah pengalaman kerja menjadi pencapaian yang spesifik dan terukur.",
-      "example": "Daripada 'Menangani pelanggan', gunakan 'Meningkatkan kepuasan pelanggan sebesar 25% melalui penanganan komplain yang efektif'."
+      "title": "Quantify Your Achievements",
+      "description": "Instead of just describing your projects, include specific numbers and metrics that demonstrate their impact.",
+      "example": "Before: 'Built a chatbot using ReAct agent framework.' After: 'Developed a chatbot that handled 500+ user queries per day with a 95% accuracy rate.'"
     },
     {
-      "title": "Perbaiki Skill yang Relevan",
-      "description": "Cantumkan skill yang relevan dengan pekerjaan yang dilamar dan berikan contoh spesifik.",
-      "example": "Daripada 'Microsoft Word', gunakan 'Menguasai Microsoft Office Suite, terutama Word dan Excel, dengan kecepatan mengetik 70 wpm'."
+      "title": "Tailor Your Summary",
+      "description": "Customize your professional summary to highlight your unique strengths and experiences.",
+      "example": "Before: 'I'm an informatics undergraduate with a passion for AI.' After: 'AI and ML engineer with experience in developing scalable chatbot solutions and a proven track record of improving user engagement.'"
     },
     {
-      "title": "Optimalkan Format CV",
-      "description": "Gunakan format yang lebih modern dan profesional serta pastikan ATS compatibility.",
-      "example": "Gunakan template CV yang profesional dan pastikan untuk menyimpan file dalam format .docx atau .pdf yang sesuai dengan ATS."
+      "title": "Prioritize Relevant Skills",
+      "description": "Instead of listing every skill you know, focus on the ones that are most relevant to the job you're applying for.",
+      "example": "Before: Listing 'Microsoft Office' as a skill. After: Highlighting expertise in 'Tensorflow', 'PyTorch', and 'Scikit-Learn' for a machine learning position."
     }
   ]
 }

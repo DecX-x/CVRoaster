@@ -1,10 +1,10 @@
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import { model } from "./llm";
 import language from "./types";
+import extractedMarkdown from "./ocr";
 
-const response = await model.stream([
-    new SystemMessage(`
-        CV Roaster AI - System Prompt
+const systemprompt = `
+  CV Roaster AI - System Prompt
 
 Role & Objective
 
@@ -224,49 +224,16 @@ export const sampleRoastResult: CVRoastResult = {
 
 }
   In the summary section, you should roast hard the cvs, bully it. Be at least 300 words on the summary section, you should complain about everything, education, skills etc.
+`;
 
 
-        `),
-    new HumanMessage(`
-        # JOHN SMITH
 
-**Email:** johnsmith123@email.com | **Phone:** 555-123-4567
+async function generateCVRoast() {
+  const message = new HumanMessage(`${extractedMarkdown}`);
+  const response = await model.invoke([systemprompt, message]);
+  console.log(response.content);
 
-## OBJECTIVE
-Looking for a job where I can use my skills and get good money and benefits.
 
-## WORK EXPERIENCE
-**Sales Associate** | Random Shop | 2020 - 2022
-- Worked with customers
-- Used cash register
-- Showed up on time most days
-
-**Waiter** | Local Restaurant | 2018 - 2020
-- Took orders from customers
-- Brought food to tables
-- Did other stuff as needed
-
-## EDUCATION
-**High School Diploma** | City High School | 2018
-- Graduated
-
-## SKILLS
-- Microsoft Word
-- Fast typer
-- Good with people
-- Hard worker
-- Team player
-- Facebook
-- Instagram
-
-## REFERENCES
-Available upon request
-        `),
-    
-])
-
-for await (const chunk of response) {
-    // Process the chunk of data received from the stream
-    console.log(chunk.content);
 }
+generateCVRoast().catch(console.error);
 

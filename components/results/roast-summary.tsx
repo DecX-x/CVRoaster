@@ -25,16 +25,12 @@ export default function RoastSummary({ roastResult }: RoastSummaryProps) {
                 <span className="font-medium text-[#f5f5f5]">Overall Score</span>
                 <span className="font-medium text-[#f5f5f5]">{overall.score}/100</span>
               </div>
-              <Progress
-                value={overall.score}
-                className="h-2"
-                style={
-                  {
-                    backgroundColor: "#333333",
-                    "--tw-progress-fill-bg": "linear-gradient(to right, #e67373, #7ac97a)",
-                  } as any
-                }
-              />
+              <div className="relative h-2 w-full overflow-hidden bg-[#333333] rounded-full">
+                <div 
+                  className="h-full bg-gradient-to-r from-[#e67373] to-[#7ac97a] transition-all duration-300"
+                  style={{ width: `${overall.score}%` }}
+                ></div>
+              </div>
             </div>
 
             {categories.map((category, index) => (
@@ -43,11 +39,15 @@ export default function RoastSummary({ roastResult }: RoastSummaryProps) {
                   <span className="font-medium text-[#f5f5f5]">{category.name}</span>
                   <span className="font-medium text-[#f5f5f5]">{category.score}/100</span>
                 </div>
-                <Progress
-                  value={category.score}
-                  className="h-2"
-                  style={{ backgroundColor: "#333333", "--tw-progress-fill-bg": category.color } as any}
-                />
+                <div className="relative h-2 w-full overflow-hidden bg-[#333333] rounded-full">
+                  <div 
+                    className="h-full transition-all duration-300"
+                    style={{ 
+                      width: `${category.score}%`,
+                      backgroundColor: category.color 
+                    }}
+                  ></div>
+                </div>
               </div>
             ))}
           </div>

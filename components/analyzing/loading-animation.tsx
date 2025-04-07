@@ -30,7 +30,6 @@ export default function LoadingAnimation() {
 
       <div className="flex justify-between text-sm text-[#a0a0a0]">
         <span>Analyzing</span>
-        <span>{progress}%</span>
       </div>
 
       <div className="flex justify-center mt-8">

@@ -1,29 +1,69 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import FileDropzone from "./file-dropzone"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useToast } from "@/hooks/use-toast"
 
 export default function UploadForm() {
   const router = useRouter()
+  const { toast } = useToast()
   const [file, setFile] = useState<File | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [language, setLanguage] = useState("english") // Default language
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!file) {
+      toast({
+        title: "No file selected",
+        description: "Please upload a CV to continue",
+        variant: "destructive",
+      })
+      return
+    }
+    
     setIsLoading(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log(`Selected language: ${language}`) // Log selected language
+    try {
+      // Step 1: Upload the file
+      const formData = new FormData()
+      formData.append('file', file)
+      formData.append('language', language)
+      
+      const uploadResponse = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      })
+      
+      if (!uploadResponse.ok) {
+        const error = await uploadResponse.json()
+        throw new Error(error.error || 'Error uploading file')
+      }
+      
+      const { fileUrl, language: selectedLanguage } = await uploadResponse.json()
+      
+      // Store data in session storage for processing
+      sessionStorage.setItem('cvFileUrl', fileUrl)
+      sessionStorage.setItem('cvLanguage', selectedLanguage)
+      
+      // Navigate to analyzing page while processing continues in background
       router.push("/analyzing")
-    }, 1500)
+      
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setIsLoading(false)
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Something went wrong",
+        variant: "destructive",
+      })
+    }
   }
 
   return (

@@ -9,6 +9,11 @@ interface RoastSummaryProps {
 export default function RoastSummary({ roastResult }: RoastSummaryProps) {
   const { overall, categories } = roastResult
 
+  // Helper function to convert markdown-style bold to HTML
+  const formatBoldText = (text: string) => {
+    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  }
+
   return (
     <Card className="shadow-md bg-[#1e1e1e] border-[#333333]">
       <CardContent className="pt-6">
@@ -16,7 +21,10 @@ export default function RoastSummary({ roastResult }: RoastSummaryProps) {
 
         <div className="space-y-6">
           <div className="p-4 rounded-lg bg-[#252525] border border-[#333333]">
-            <p className="text-[#f5f5f5]">{overall.summary}</p>
+            <p 
+              className="text-[#f5f5f5]"
+              dangerouslySetInnerHTML={{ __html: formatBoldText(overall.summary) }}
+            />
           </div>
 
           <div className="space-y-4">
@@ -56,4 +64,3 @@ export default function RoastSummary({ roastResult }: RoastSummaryProps) {
     </Card>
   )
 }
-

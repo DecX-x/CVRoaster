@@ -51,7 +51,7 @@ MISTRAL_API_KEY=your_mistral_api_key
 
 The application uses two powerful AI models:
 
-1. **Llama 4 Maverick 17B**: Primary model for CV analysis and feedback generation
+1. **Llama 4 Maverick 17Bx128E**: Primary model for CV analysis and feedback generation
 2. **Mistral AI**: Handles OCR processing and text extraction
 
 Configuration can be customized in `lib/llm.ts`:
@@ -66,6 +66,22 @@ const model = new ChatOpenAI({
     }
 })
 ```
+
+You can change the LLM provider by modifying the `baseURL` in the configuration. For example:
+
+```typescript
+// For Groq
+configuration: {
+    baseURL: "https://api.groq.com/openai/v1"
+}
+
+// For OpenRouter
+configuration: {
+    baseURL: "https://openrouter.ai/api/v1"
+}
+```
+
+Each provider may have different model names and API key requirements, so be sure to update these accordingly in your environment variables.
 
 ### OCR Configuration
 
@@ -124,13 +140,6 @@ ai-cv-roaster/
 └── ...
 ```
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 

@@ -46,13 +46,12 @@ export default function UploadForm() {
         throw new Error(error.error || 'Error uploading file')
       }
       
-      const { fileUrl, language: selectedLanguage } = await uploadResponse.json()
-      
-      // Store data in session storage for processing
-      sessionStorage.setItem('cvFileUrl', fileUrl)
+      const { extractedText, language: selectedLanguage } = await uploadResponse.json()
+      // Store extracted text and language in session storage for processing
+      sessionStorage.setItem('cvExtractedText', JSON.stringify(extractedText))
       sessionStorage.setItem('cvLanguage', selectedLanguage)
       
-      // Navigate to analyzing page while processing continues in background
+      // Navigate to analyzing page while analysis generation continues
       router.push("/analyzing")
       
     } catch (error) {

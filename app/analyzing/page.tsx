@@ -15,70 +15,33 @@ export default function AnalyzingPage() {
     
     const processCV = async () => {
       try {
-        // Retrieve data from session storage
-        const fileUrl = sessionStorage.getItem('cvFileUrl')
+        // Retrieve extracted text and language from session storage
+        const extractedText = JSON.parse(sessionStorage.getItem('cvExtractedText') || '[]')
         const language = sessionStorage.getItem('cvLanguage') || 'english'
         
-        if (!fileUrl) {
-          toast({
-            title: "Error",
-            description: "No file found. Please upload your CV again.",
-            variant: "destructive",
-          })
+        if (!extractedText || extractedText.length === 0) {
+          toast({ title: "Error", description: "No extracted text found. Please upload your CV again.", variant: "destructive" })
           router.push("/upload")
           return
         }
-        
+
         // Update progress
         if (isMounted) setProgress(20)
-        
-        // Step 2: Process OCR
-        const ocrResponse = await fetch('/api/analyze-cv/ocr', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ fileUrl }),
-        })
-        
-        if (!ocrResponse.ok) {
-          const error = await ocrResponse.json()
-          throw new Error(error.error || 'Error processing OCR')
-        }
-        
-        const { extractedText } = await ocrResponse.json()
-        
-        // Update progress
-        if (isMounted) setProgress(60)
-        
-        // Step 3: Generate analysis
+        // Step 2: Generate analysis using extracted text
         const generateResponse = await fetch('/api/analyze-cv/generate', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ 
-            extractedText,
-            language
-          }),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ extractedText, language }),
         })
-        
         if (!generateResponse.ok) {
           const error = await generateResponse.json()
           throw new Error(error.error || 'Error generating analysis')
         }
-        
         const { result } = await generateResponse.json()
-        
-        // Update progress
         if (isMounted) setProgress(100)
-        
-        // Store result in session storage
+        // Store result and navigate to results
         sessionStorage.setItem('cvAnalysisResult', JSON.stringify(result))
-        
-        // Navigate to results page
         router.push("/results")
-        
       } catch (error) {
         console.error('Error analyzing CV:', error)
         if (isMounted) {

@@ -118,18 +118,16 @@ pnpm start
 - Returns file URL and detected language
 
 ### POST /api/analyze-cv/generate
-- Generates detailed CV analysis
-- Provides scoring and feedback
-- Returns improvement suggestions
+- Accepts extracted text and language
+- Generates a detailed CV analysis in JSON format
+- Provides scoring, category breakdown, and actionable feedback
+- Returns improvement suggestions and tips
 
 ### POST /api/analyze-cv/ocr
 - Performs OCR on uploaded documents
 - Extracts text for analysis
+- Supports multi-language documents
 
-## File Size Limits
-
-- Maximum file size: 5MB
-- Supported formats: PDF, DOC, DOCX
 
 ## Directory Structure
 
@@ -138,11 +136,8 @@ ai-cv-roaster/
 ├── app/               # Next.js app directory
 ├── components/        # React components
 ├── lib/              # Utility functions and configurations
-├── public/           # Static files
-│   └── uploads/      # Uploaded files directory
 └── ...
 ```
-
 
 ## License
 

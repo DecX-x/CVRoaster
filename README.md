@@ -67,6 +67,8 @@ const model = new ChatOpenAI({
 })
 ```
 
+**Switching LLM Providers**
+
 You can change the LLM provider by modifying the `baseURL` in the configuration. For example:
 
 ```typescript
@@ -81,7 +83,8 @@ configuration: {
 }
 ```
 
-Each provider may have different model names and API key requirements, so be sure to update these accordingly in your environment variables.
+> **Note:**  
+> When switching providers, you may also need to update the `model` value and provide the correct API key for the chosen provider. Refer to each provider's documentation for supported model names and authentication requirements.
 
 ### OCR Configuration
 
